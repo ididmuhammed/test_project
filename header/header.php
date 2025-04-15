@@ -80,7 +80,8 @@ if (isset($_SESSION['user_id'])) {
                         <span class="icon icon-help"></span>
                         <span>Help</span>
                         <div class="dropdown-menu help-dropdown">
-                            <a class="dropdown-item" href="#">Help Center</a>
+                            <a class="dropdown-item" href="dashboard/contacts/contacts.php">Contact</a>
+                            <a class="dropdown-item" href="dashboard/contacts/about.php">About</a>
                             <a class="dropdown-item" href="#">Place an Order</a>
                             <a class="dropdown-item" href="#">Other Help Options</a>
                         </div>
