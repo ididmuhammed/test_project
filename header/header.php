@@ -79,7 +79,7 @@ if (isset($_SESSION['user_id'])) {
                                         <div class="dropdown-email"><?php echo htmlspecialchars($user['email']); ?></div>
                                     </div>
                                     <div class="dropdown-divider"></div>
-                                    <a href="auth/update_profile.php" class="dropdown-menu-item">
+                                    <a href="../auth/update_profile.php" class="dropdown-menu-item">
                                         <i class="fas fa-user-edit"></i> Update Profile
                                     </a>
                                     <div class="dropdown-divider"></div>
