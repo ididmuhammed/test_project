@@ -16,8 +16,8 @@
 }
 
 body {
-    /* change the color here  */
-    background-color: var(--dark-bg);
+    /* Change the background to pale green */
+    background-color: #e0f7fa; /* pale green */
     color: var(--text-color);
     min-height: 100vh;
     display: flex;
@@ -25,9 +25,9 @@ body {
 }
 
 .slider-container {
-    max-width: 1200px;
-    width: 90%;
-    margin: 2rem auto;
+    width: 100%; /* Make the slider container occupy full width */
+    height: auto;
+    margin: 0 auto;
     position: relative;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
@@ -37,6 +37,7 @@ body {
 
 .slider {
     display: flex;
+    width: 100%; /* Make sure the slider itself spans the entire width */
     height: 70vh;
     min-height: 500px;
     transition: transform var(--transition-speed) ease-in-out;
@@ -59,7 +60,7 @@ body {
     z-index: 1;
 }
 
-button {
+.slider-container button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -79,7 +80,7 @@ button {
     justify-content: center;
 }
 
-button:hover {
+.slider-container button:hover {
     background-color: rgba(0, 0, 0, 0.8);
     transform: translateY(-50%) scale(1.1);
 }
@@ -178,7 +179,6 @@ footer {
     flex-wrap: wrap;
 }
 
-
 .social-icon {
     color: white;
     text-decoration: none;
@@ -222,7 +222,7 @@ footer {
         font-size: 1.5rem;
     }
     
-    button {
+    .slider-container button {
         padding: 0.8rem;
         font-size: 1.2rem;
         width: 40px;

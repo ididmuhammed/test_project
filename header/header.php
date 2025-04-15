@@ -54,7 +54,7 @@ if (isset($_SESSION['user_id'])) {
             </div>
 
             <!-- Center - Search Bar -->
-            <div class="flex-1 px-md">
+            <div class=" header-btn flex px-md">
                 <form action="search.php" method="GET" class="search-box flex">
                     <input type="search" name="q" placeholder="Search..." class="search-input">
                     <button type="submit" class="search-btn">Search</button>
