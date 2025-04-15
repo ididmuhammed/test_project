@@ -34,8 +34,11 @@ if (!isset($_SESSION['username'])) {
     <title>Dashboard</title>
 </head>
 <body>
+    <link rel="stylesheet" href="../header/header.css">
+    <?php include '../header/header.php' ?>
     <h1>Welcome, <?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'User'; ?>!</h1>
     <p>You are now logged in.</p>
     <a href="../auth/logout.php">Logout</a>
 </body>
+<script src="../header/header.js"></script>
 </html>

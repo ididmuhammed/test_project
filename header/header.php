@@ -1,31 +1,29 @@
 <?php
-include 'config.php';  // Ensure this points to the correct configuration file
-
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
-$defaultProfileImage = './assets/images/default-profile.png';
+$defaultProfileImage = '../images/default-avatar.png';
+$user = null;
 
 if (isset($_SESSION['user_id'])) {
-    // Prepare the SQL query
-    $stmt = $conn->prepare("SELECT profile_image FROM users WHERE id = ?");
-    // Bind the user ID as an integer (i for integer)
+    // Fetch user details from users table
+    $stmt = $conn->prepare("SELECT id, email, username, profile_image FROM users WHERE id = ?");
     $stmt->bind_param("i", $_SESSION['user_id']);
-    // Execute the query
     $stmt->execute();
-    // Get the result of the query
     $result = $stmt->get_result();
-    // Fetch the profile image or default image if none found
-    $userProfileImage = $result->fetch_assoc()['profile_image'] ?: $defaultProfileImage;
+    $user = $result->fetch_assoc();
+
+    // Set profile image or default
+    $userProfileImage = (!empty($user['profile_image'])) ? $user['profile_image'] : $defaultProfileImage;
 } else {
     $userProfileImage = $defaultProfileImage;
 }
 ?>
 
 <link rel="stylesheet" href="header/header.css" />
-<header class="bg-white shadow">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
+<header class="bg-white shadow">
     <!-- First Row - Company Name Centered -->
     <div class="py-md text-center">
         <div class="py-md" style="text-align: center; width: 100%;">
@@ -54,7 +52,7 @@ if (isset($_SESSION['user_id'])) {
             </div>
 
             <!-- Center - Search Bar -->
-            <div class=" header-btn flex px-md">
+            <div class="header-btn flex px-md">
                 <form action="search.php" method="GET" class="search-box flex">
                     <input type="search" name="q" placeholder="Search..." class="search-input">
                     <button type="submit" class="search-btn">Search</button>
@@ -65,15 +63,51 @@ if (isset($_SESSION['user_id'])) {
             <div class="desktop-only">
                 <div class="nav-items">
 
-                    <!-- Account -->
+               <!-- Account Section -->
                     <div class="nav-item dropdown-parent" id="accountToggle">
-                        <span class="icon icon-user"></span>
-                        <span>Account</span>
-                        <div class="dropdown-menu account-dropdown">
-                            <a class="dropdown-item" href="auth/login2/login.php">Sign In</a>
-                            <a class="dropdown-item" href="auth/sign_up/sign_up.php">Sign Up</a>
-                        </div>
+                        <?php if ($user): ?>
+                            <!-- Logged In State -->
+                            <div class="profile-container">
+                                <img src="<?php echo htmlspecialchars($userProfileImage); ?>" class="profile-icon" id="profileIcon">
+                                <div class="profile-text">
+                                    <div class="profile-username"><?php echo htmlspecialchars($user['username']); ?></div>
+                                </div>
+                                <div class="profile-dropdown dropdown-menu">
+                                    <img src="<?php echo htmlspecialchars($userProfileImage); ?>" alt="Profile Zoom" class="zoomed-profile-img" />
+                                    <div class="dropdown-user-info">
+                                        <div class="dropdown-username"><?php echo htmlspecialchars($user['username']); ?></div>
+                                        <div class="dropdown-email"><?php echo htmlspecialchars($user['email']); ?></div>
+                                    </div>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="auth/update_profile.php" class="dropdown-menu-item">
+                                        <i class="fas fa-user-edit"></i> Update Profile
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="../auth/logout.php" class="dropdown-menu-item logout-item">
+                                        <i class="fas fa-sign-out-alt"></i> Logout
+                                    </a>
+                                </div>
+                            </div>
+                        <?php else: ?>
+                            <!-- Guest State: Account, Sign In, Sign Up -->
+                            <div class="profile-container">
+                                <span class="icon icon-user"></span>
+                                <div class="profile-text">
+                                    <div class="profile-username">Account</div>
+                                </div>
+                                <div class="profile-dropdown dropdown-menu">
+                                    <a class="dropdown-item" href="auth/login2/login.php">
+                                        <i class="fas fa-sign-in-alt"></i> Sign In
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="auth/sign_up/sign_up.php">
+                                        <i class="fas fa-user-plus"></i> Sign Up
+                                    </a>
+                                </div>
+                            </div>
+                        <?php endif; ?>
                     </div>
+
 
                     <!-- Help -->
                     <div class="nav-item dropdown-parent" id="helpToggle">
@@ -97,7 +131,6 @@ if (isset($_SESSION['user_id'])) {
                             </span>
                         <?php endif; ?>
                     </a>
-
                 </div>
             </div>
 
@@ -126,6 +159,6 @@ if (isset($_SESSION['user_id'])) {
             </div>
         </div>
     </div>
-
 </header>
+
 <script src="header/header.js"></script>

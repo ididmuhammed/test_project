@@ -118,25 +118,6 @@ body {
     margin-bottom: 1.5rem;
     font-weight: normal;
 }
-
-.slider-overlay .click-to-view {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--accent-color);
-    /* change the click view color here */
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.slider-overlay .click-to-view:hover {
-    background-color: #3da8d8;
-    transform: scale(1.05);
-}
-
 footer {
     /* change the footer text color here */
     background-color: var(--dark-bg);

@@ -1,6 +1,3 @@
-<?php
-include 'header/header.php';
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +9,10 @@ include 'header/header.php';
        
 </head>
 <body>
-
+<?php
+include 'config.php'; 
+include 'header/header.php';
+?>
 <div class="slider-container">
         <div class="slider">
             <img src="images/image1.jpg" alt="Transformer" class="slide active">
@@ -23,7 +23,6 @@ include 'header/header.php';
             <div class="slider-overlay">
                 <h1>Company Name</h1>
                 <h2>What Website Does</h2>
-                <a href="auth/login2/login.php" class="click-to-view">click to view</a>
             </div>
         </div>
         <button class="prev" onclick="changeSlide(-1)">&#10094;</button>

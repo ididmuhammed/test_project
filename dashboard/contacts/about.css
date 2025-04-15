@@ -1,0 +1,230 @@
+
+        :root {
+            --mama-primary: #c62828;
+            --mama-secondary: #f5f5f5;
+            --mama-text: #333;
+            --mama-light-text: #777;
+        }
+        
+        .mama-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-family: 'Playfair Display', serif;
+            line-height: 1.8;
+            color: var(--mama-text);
+        }
+        
+        .mama-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+        
+        .mama-header h1 {
+            font-size: 4rem;
+            margin: 0;
+            font-weight: 700;
+        }
+        
+        .mama-header-subtitle {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-top: 20px;
+        }
+        
+        .mama-section {
+            margin-bottom: 80px;
+        }
+        
+        .mama-section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--mama-primary);
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .mama-section-title:after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--mama-primary);
+            margin: 20px auto;
+        }
+        
+        .mama-story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .mama-story-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .mama-story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .mama-story-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .mama-mission-values {
+            background: var(--mama-secondary);
+            padding: 60px 0;
+        }
+        
+        .mama-values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .mama-value-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .mama-value-icon {
+            font-size: 2.5rem;
+            color: var(--mama-primary);
+            margin-bottom: 20px;
+        }
+        
+        .mama-value-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .mama-team-section {
+            text-align: center;
+        }
+        
+        .mama-team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .mama-team-member {
+            background: white;
+            padding-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .mama-team-member:hover {
+            transform: translateY(-10px);
+        }
+        
+        .mama-member-image {
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .mama-member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .mama-team-member:hover .mama-member-image img {
+            transform: scale(1.1);
+        }
+        
+        .mama-member-info {
+            padding: 20px;
+        }
+        
+        .mama-member-name {
+            font-size: 1.3rem;
+            margin: 10px 0 5px;
+        }
+        
+        .mama-member-position {
+            color: var(--mama-primary);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .mama-testimonials {
+            background: var(--mama-secondary);
+            padding: 80px 0;
+        }
+        
+        .mama-testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .mama-testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .mama-testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .mama-testimonial-text:before {
+            content: "\"";  /* Using escaped quotation mark */
+            font-size: 4rem;
+            color: var(--mama-primary);
+            opacity: 0.2;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+        }
+        
+        .mama-testimonial-author {
+            font-weight: bold;
+        }
+        
+        .mama-testimonial-role {
+            color: var(--mama-light-text);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .mama-story-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mama-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .mama-header-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+   
