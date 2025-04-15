@@ -21,7 +21,7 @@ if (!isset($_SESSION['username'])) {
         $_SESSION['username'] = $user['username'];
     } else {
         // If user doesn't exist, log them out
-        header("Location: ../logout.php");
+        header("Location: ../auth/logout.php");
         exit();
     }
 }
@@ -36,6 +36,6 @@ if (!isset($_SESSION['username'])) {
 <body>
     <h1>Welcome, <?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'User'; ?>!</h1>
     <p>You are now logged in.</p>
-    <a href="../logout.php">Logout</a>
+    <a href="../auth/logout.php">Logout</a>
 </body>
 </html>

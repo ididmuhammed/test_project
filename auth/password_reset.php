@@ -1,6 +1,6 @@
 <?php
 // Include your database configuration file
-include 'config.php';
+include '../config.php';
 
 // Include PHPMailer manually (since Composer isn't working)
 require 'phpmailer/PHPMailer.php';
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $mail->Host       = 'smtp.gmail.com';
                     $mail->SMTPAuth   = true;
                     $mail->Username   = 'ididmuhammed93@gmail.com'; // Your Gmail
-                    $mail->Password   = 'ltwt vcar jkgy hvrh'; // Use App Password
+                    $mail->Password   = 'lzeb rejn vypb qbgk'; // Use App Password
                     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // TLS encryption
                     $mail->Port       = 587; // Gmail SMTP port
                     

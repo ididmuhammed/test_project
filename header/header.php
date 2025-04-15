@@ -1,5 +1,5 @@
 <?php
-include 'auth/config.php';  // Ensure this points to the correct configuration file
+include 'config.php';  // Ensure this points to the correct configuration file
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'config.php';
+include '../config.php';
 
 // Check if email exists in session
 if (!isset($_SESSION['reset_email'])) {

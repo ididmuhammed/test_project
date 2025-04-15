@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'config.php';
+include '../config.php';
 
 // Check if user is verified
 if (!isset($_SESSION['verified_email'])) {
